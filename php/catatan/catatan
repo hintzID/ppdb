@@ -1,0 +1,22 @@
+// ambil data dari tabel latihanphp1 {query data}
+$result = mysqli_query($conn, "SELECT * FROM `latihanphp1`");
+
+// ambil data (fetch) latihanphp1 dari object result
+// mysqli_fetch_row() ~ mengembalikan array numerik
+// mysqli_fetch_assoc() ~ mengembalikan array associative
+// mysqli_fetch_array() ~ mengembalikan keduanya
+// mysqli_fetch_object()
+
+//while ($str = mysqli_fetch_assoc($result)){
+//var_dump($str);
+//}
+
+while ($row = mysqli_fetch_assoc($result))
+
+/* if( mysqli_affected_rows($conn) > 0 ) {
+        echo "berhasil";
+    } else {
+        echo "gagal!";
+        echo "<br>";
+        echo mysqli_error($conn);
+    } */

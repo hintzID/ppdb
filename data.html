@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>JSON TO PHP</title>
+  <style>
+  </style>
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+</head>
+<body>   
+
+<table border="1">
+    <tr>
+        <th width="200">NAMA</th>
+        <th width="200">ALAMAT</th>
+        <th width="200">NO HP</th>
+        <th width="200">GENDER</th>
+        <th width="200">EMAIL</th>
+        <th width="200">GAMBAR</th>
+    </tr>
+</table>
+    <div id="show-data">
+    </div>
+
+<script>
+    $(document).ready(() => {
+  
+        const $showData = $('#show-data');
+
+
+      
+          $.getJSON('http://localhost/java/file.php', (respon) => {
+
+            const markup = respon
+              .map(item => `<tr>
+                            
+                            <td width="250" style="text-align:center;">${item.nama}</td>
+                            <td width="250" style="text-align:center;">${item.alamat}</td>
+                            <td width="250" style="text-align:center;">${item["no hp"]}</td>
+                            <td width="250" style="text-align:center;">${item.gender}</td>
+                            <td width="250" style="text-align:center;">${item.email}</td>
+                            <td width="400" style="text-align:center;"><img width="50"src="img/${item.gambar}"</td>
+ 
+                           </tr> `)
+                            
+              .join('');
+      
+            const list = $('<table  />').html(markup);
+      
+            $showData.html(list);
+      
+
+          });
+        });
+        
+      
+</script> 
+</body>
+</html>
